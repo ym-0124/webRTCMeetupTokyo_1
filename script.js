@@ -18,7 +18,7 @@ var peer = new Peer({key: APIKEY, debug:DEBUG_MODE});
 peer.on('open', function(id){
     console.log("My Peer id: " + id);
     //【回答２】
-    $('#my-id').text(id);
+    $('#my-id').text("My Peer id: " + id);
 });
 
 
@@ -69,8 +69,8 @@ function step1 () {
     // 【問題５】getUserMediaの以下のコード内のコメントを参考にコードを完成させえて下さい
     // 【回答５】//getUserMediaのオプション指定
     navigator.getUserMedia({audio:true, video:true}, function(stream){
-        // 相手からのビデオストリームを$('my-video')にセットする
-	$('my-video').prop('src', window.URL.createObjectURL(stream));
+        // 相手からのビデオストリームを$('#my-video')にセットする
+	$('#my-video').prop('src', window.URL.createObjectURL(stream));
         // 取得したストリームを後で使うためにwindowオブジェクトに保存
 	window.localStream = stream;
 
@@ -94,7 +94,7 @@ function step3 (call) {
     call.on('stream', function(stream){
         // 【問題６】相手からのビデオストリームを$('their-video')にセットするコードを書いて下さい
 	// 【回答６】
-	$('their-video').prop('src', window.URL.createObjectURL(stream));
+	$('#their-video').prop('src', window.URL.createObjectURL(stream));
         
         $('#step1, #step2').hide();
         $('#step3').show();
